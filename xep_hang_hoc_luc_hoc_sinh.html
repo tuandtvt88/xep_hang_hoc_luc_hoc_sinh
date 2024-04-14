@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Xếp hạng học lực học sinh</h1>
+<h2>Điểm thi giữa kỳ là 40%, Điểm thi cuối kỳ là 60%</h2>
+<input type="number" id="giuaky" placeholder="Nhập điểm giữa kỳ" >
+<input type="number" id="cuoiky" placeholder="Nhập điểm cuối kỳ">
+<button onclick="getdiem()"> Kết quả</button>
+<h4 id="diemtb"></h4>
+<h4 id="xeploai"></h4>
+</body>
+<script>
+    function getdiem() {
+        let diemgiuaky = document.getElementById('giuaky').value;
+        let diemcuoiky = document.getElementById('cuoiky').value;
+        if (diemcuoiky<0 || diemcuoiky > 10 || diemgiuaky <0 || diemgiuaky > 10){
+            alert('Vui lòng nhập lại điểm chỉ thõa mãn từ 0 đến 10')
+            return;
+        }
+        diemtb1 = diemgiuaky * 0.4 + diemcuoiky * 0.6;
+        document.getElementById('diemtb').innerHTML = 'Điểm trung bình là: '+diemtb1;
+        if (diemtb1 < 5) {
+            document.getElementById('xeploai').innerHTML = " Xếp loại học lực: Yếu"
+        } else if (diemtb1 >= 5 && diemtb1 < 6.9) {
+            document.getElementById("xeploai").innerHTML = "Xếp loại học lực: Trung Bình"
+        } else if (diemtb1 >= 7 && diemtb1 < 7.9) {
+            document.getElementById("xeploai").innerHTML = "Xếp loại học lực: Khá"
+        } else if (diemtb1 >= 8 && diemtb1 < 9) {
+            document.getElementById("xeploai").innerHTML = "Xếp loại học lực: Giỏi"
+        } else if (diemtb1 >= 9 && diemtb1 <= 10) {
+            document.getElementById("xeploai").innerHTML = "Xếp loại học lực: Xuất Sắc"
+        }
+    }
+</script>
+
+</html>
